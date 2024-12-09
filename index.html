@@ -77,15 +77,23 @@
 <div class="container">
     <h1>تحديث التطبيق مطلوب</h1>
     <p>يبدو أنك تستخدم إصدارًا قديمًا من التطبيق. للحصول على أحدث المزايا وحل المشكلات، يُرجى تحديث التطبيق إلى الإصدار الأخير.</p>
-    <a class="update-btn" id="updateButton" href="intent://details?id=com.asheeq.webviewgold#Intent;scheme=market;package=com.android.vending;end" target="_blank">تحديث الآن</a>
+    <a class="update-btn" id="updateButton" href="#">تحديث الآن</a>
 </div>
 
 <script>
     // التوجيه التلقائي إلى رابط Google Play بعد تحميل الصفحة
     window.onload = function() {
-        const redirectUrl = "intent://details?id=com.asheeq.webviewgold#Intent;scheme=market;package=com.android.vending;end"; // الرابط المطلوب
-        window.location.href = redirectUrl; // التوجيه التلقائي
+        const redirectUrl = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
+        
+        // محاولة التوجيه إلى متجر Google Play
+        window.location.href = redirectUrl; // التوجيه التلقائي إلى Google Play
     };
+
+    // عند النقر على الزر، التوجيه إلى الرابط مباشرة
+    document.getElementById('updateButton').addEventListener('click', function () {
+        const redirectUrl = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
+        window.location.href = redirectUrl; // التوجيه عند النقر على الزر
+    });
 </script>
 </body>
 </html>

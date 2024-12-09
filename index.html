@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="تحديث التطبيق">
     <title>تحديث التطبيق</title>
-    <!-- رابط تحميل خط Cairo من Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
     <style>
         html, body {
@@ -77,23 +76,17 @@
 <div class="container">
     <h1>تحديث التطبيق مطلوب</h1>
     <p>يبدو أنك تستخدم إصدارًا قديمًا من التطبيق. للحصول على أحدث المزايا وحل المشكلات، يُرجى تحديث التطبيق إلى الإصدار الأخير.</p>
-    <a class="update-btn" id="updateButton" href="#">تحديث الآن</a>
+    <a class="update-btn" href="javascript:void(0);" onclick="redirectToPlayStore()">تحديث الآن</a>
 </div>
 
 <script>
-    // التوجيه التلقائي إلى رابط Google Play بعد تحميل الصفحة
-    window.onload = function() {
-        const redirectUrl = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
+    function redirectToPlayStore() {
+        // رابط التطبيق على متجر جوجل بلاي
+        const playStoreUrl = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
         
-        // محاولة التوجيه إلى متجر Google Play
-        window.location.href = redirectUrl; // التوجيه التلقائي إلى Google Play
-    };
-
-    // عند النقر على الزر، التوجيه إلى الرابط مباشرة
-    document.getElementById('updateButton').addEventListener('click', function () {
-        const redirectUrl = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
-        window.location.href = redirectUrl; // التوجيه عند النقر على الزر
-    });
+        // محاولة فتح الرابط في التطبيق مباشرة باستخدام window.location
+        window.location = playStoreUrl;
+    }
 </script>
 </body>
 </html>

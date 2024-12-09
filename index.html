@@ -76,12 +76,15 @@
 <div class="container">
     <h1>تحديث التطبيق مطلوب</h1>
     <p>يبدو أنك تستخدم إصدارًا قديمًا من التطبيق. للحصول على أحدث المزايا وحل المشكلات، يُرجى تحديث التطبيق إلى الإصدار الأخير.</p>
-    <a class="update-btn" id="updateButton" href="https://play.google.com/store/apps/details?id=com.asheeq.webviewgold" target="_blank">تحديث الآن</a>
+    <a class="update-btn" id="updateButton" href="#">تحديث الآن</a>
 </div>
 
 <script>
-    // توجيه المستخدم مباشرة إلى Google Play
-    window.location.href = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
+    document.getElementById('updateButton').addEventListener('click', function (e) {
+        e.preventDefault();
+        // فتح الرابط في نافذة جديدة
+        window.open('https://play.google.com/store/apps/details?id=com.asheeq.webviewgold', '_system');
+    });
 </script>
 </body>
 </html>

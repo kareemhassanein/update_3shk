@@ -63,8 +63,14 @@
 <script>
     document.getElementById('updateButton').addEventListener('click', function(e) {
         e.preventDefault();
-        // حاول فتح رابط Google Play في نافذة جديدة
-        window.open("https://play.google.com/store/apps/details?id=com.asheeq.webviewgold", "_blank");
+        // محاولة فتح رابط Google Play في نافذة جديدة
+        var url = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
+        
+        // تحقق إذا كان المتصفح يدعم فتح روابط في نافذة جديدة
+        if (window.open(url, '_system') === null) {
+            // إذا فشل فتح الرابط مباشرة، عرض رسالة بديلة للمستخدم
+            alert('لطفًا، قم بفتح متجر Google Play مباشرة لتحديث التطبيق.');
+        }
     });
 </script>
 </body>

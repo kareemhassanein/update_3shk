@@ -7,6 +7,13 @@
     <title>تحديث التطبيق</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
         body {
             font-family: 'Cairo', sans-serif;
             background-color: #f5f5f5;
@@ -17,6 +24,7 @@
             text-align: center;
             color: #333;
         }
+
         .container {
             padding: 20px;
             width: 90%;
@@ -25,16 +33,19 @@
             box-shadow: 5px 5px 15px #cccccc, -5px -5px 15px #ffffff;
             border-radius: 15px;
         }
+
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
             color: #960606;
         }
+
         p {
             font-size: 18px;
             margin-bottom: 30px;
             line-height: 1.6;
         }
+
         .update-btn {
             background-color: #960606;
             color: #fff;
@@ -47,9 +58,17 @@
             transition: transform 0.3s, box-shadow 0.3s;
             display: inline-block;
         }
+
         .update-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(150, 6, 6, 0.3);
+        }
+
+        .note {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+            text-align: right;
         }
     </style>
 </head>
@@ -57,21 +76,12 @@
 <div class="container">
     <h1>تحديث التطبيق مطلوب</h1>
     <p>يبدو أنك تستخدم إصدارًا قديمًا من التطبيق. للحصول على أحدث المزايا وحل المشكلات، يُرجى تحديث التطبيق إلى الإصدار الأخير.</p>
-    <a class="update-btn" id="updateButton" href="#">تحديث الآن</a>
+    <a class="update-btn" id="updateButton" href="https://play.google.com/store/apps/details?id=com.asheeq.webviewgold" target="_blank">تحديث الآن</a>
 </div>
 
 <script>
-    document.getElementById('updateButton').addEventListener('click', function(e) {
-        e.preventDefault();
-        // محاولة فتح رابط Google Play في نافذة جديدة
-        var url = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
-        
-        // تحقق إذا كان المتصفح يدعم فتح روابط في نافذة جديدة
-        if (window.open(url, '_system') === null) {
-            // إذا فشل فتح الرابط مباشرة، عرض رسالة بديلة للمستخدم
-            alert('لطفًا، قم بفتح متجر Google Play مباشرة لتحديث التطبيق.');
-        }
-    });
+    // توجيه المستخدم مباشرة إلى Google Play
+    window.location.href = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
 </script>
 </body>
 </html>

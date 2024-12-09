@@ -1,3 +1,21 @@
+<?php
+// تحديد معرف التطبيق في Google Play
+$packageId = "com.asheeq.webviewgold"; // استبدل هذا بالـ ID الخاص بتطبيقك في متجر جوجل بلاي
+
+// تحديد رابط إعادة التوجيه إلى متجر جوجل بلاي باستخدام market://
+$playStoreLink = "market://details?id=" . $packageId;
+
+// تحديد رابط بديل في حالة عدم عمل market://
+$fallbackUrl = "https://play.google.com/store/apps/details?id=" . $packageId;
+
+// إرسال الرأس HTTP لإعادة التوجيه إلى الرابط
+if (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') !== false) {
+    // إذا كان المستخدم على جهاز أندرويد، استخدم market://
+    header("Location: $playStoreLink");
+    exit; // إنهاء عملية السكربت بعد إعادة التوجيه
+} else {
+    // إذا لم يكن على جهاز أندرويد، عرض الصفحة التي تحتوي على رابط التحميل
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -5,7 +23,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="تحديث التطبيق">
     <title>تحديث التطبيق</title>
-    <!-- رابط تحميل خط Cairo من Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
     <style>
         html, body {
@@ -77,18 +94,10 @@
 <div class="container">
     <h1>تحديث التطبيق مطلوب</h1>
     <p>يبدو أنك تستخدم إصدارًا قديمًا من التطبيق. للحصول على أحدث المزايا وحل المشكلات، يُرجى تحديث التطبيق إلى الإصدار الأخير.</p>
-    <a class="update-btn" id="updateButton" href="#">تحديث الآن</a>
+    <a class="update-btn" href="<?php echo $fallbackUrl; ?>">تحديث الآن</a>
 </div>
-
-<script>
-    // التوجيه التلقائي إلى رابط Google Play بعد تحميل الصفحة
-
-
-    // عند النقر على الزر، التوجيه إلى الرابط مباشرة
-    document.getElementById('updateButton').addEventListener('click', function () {
-                window.open('https://play.google.com/store/apps/details?id=com.asheeq.webviewgold', '_system');
-
-    });
-</script>
 </body>
 </html>
+<?php
+}
+?>

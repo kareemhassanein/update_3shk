@@ -81,12 +81,9 @@
 </div>
 
 <script>
-    // التوجيه التلقائي إلى رابط Google Play بعد تحميل الصفحة
-
-    // عند النقر على الزر، التوجيه إلى الرابط مباشرة
     document.getElementById('updateButton').addEventListener('click', function () {
-        const redirectUrl = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
-        window.location.href = redirectUrl; // التوجيه عند النقر على الزر
+        const intentUrl = " intent://details?id=com.asheeq.webviewgold#Intent;scheme=market;package=com.android.vending;end;";
+        window.location.href = intentUrl; // التوجيه باستخدام intent
     });
 </script>
 </body>

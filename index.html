@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="تحديث التطبيق">
-    <meta property="og:title" content="تحديث التطبيق" />
-    <meta property="og:description" content="يجب عليك تحديث التطبيق!" />
     <title>تحديث التطبيق</title>
-    <!-- رابط تحميل خط Cairo من Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -60,14 +57,15 @@
 <div class="container">
     <h1>تحديث التطبيق مطلوب</h1>
     <p>يبدو أنك تستخدم إصدارًا قديمًا من التطبيق. للحصول على أحدث المزايا وحل المشكلات، يُرجى تحديث التطبيق إلى الإصدار الأخير.</p>
-    <a class="update-btn" href="https://play.google.com/store/apps/details?id=com.asheeq.webviewgold" target="_blank">تحديث الآن</a>
+    <a class="update-btn" id="updateButton" href="#">تحديث الآن</a>
 </div>
 
-<!-- محاولة لتحفيز التنزيل مع إشعارات أخرى -->
 <script>
-    setTimeout(function () {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
-    }, 2000);  // محاولة التوجيه بعد 2 ثانية
+    document.getElementById('updateButton').addEventListener('click', function(e) {
+        e.preventDefault();
+        // حاول فتح رابط Google Play في نافذة جديدة
+        window.open("https://play.google.com/store/apps/details?id=com.asheeq.webviewgold", "_blank");
+    });
 </script>
 </body>
 </html>

@@ -29,27 +29,16 @@
 </head>
 <body>
     <h1>تحديث التطبيق مطلوب</h1>
-    <p>يرجى تحديث التطبيق للاستفادة من الميزات الجديدة.</p>
+    <p>يرجى تحديث التطبيق للحصول على أحدث المزايا.</p>
     <a href="#" class="btn" id="updateButton">تحديث الآن</a>
 
     <script>
         document.getElementById('updateButton').addEventListener('click', function () {
-            // حاول التوجيه باستخدام market://
-            const marketUrl = "market://details?id=com.asheeq.webviewgold";
-            const fallbackUrl = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
+            // رابط جوجل بلاي
+            const playStoreUrl = "https://play.google.com/store/apps/details?id=com.asheeq.webviewgold";
 
-            // افتح market://
-            try {
-                window.location.href = marketUrl;
-
-                // إذا لم ينجح، استخدم الرابط الاحتياطي
-                setTimeout(() => {
-                    window.location.href = fallbackUrl;
-                }, 1000);
-            } catch (e) {
-                // استخدم الرابط الاحتياطي عند حدوث خطأ
-                window.location.href = fallbackUrl;
-            }
+            // التوجيه إلى الرابط مباشرة
+            window.open(playStoreUrl, '_blank'); // هذا سيفتح الرابط في المتصفح أو تطبيق جوجل بلاي
         });
     </script>
 </body>
